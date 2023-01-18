@@ -43,7 +43,6 @@ public class GameCore : MonoBehaviour
         if (Sword.velocity.magnitude > 4)
         {
             float angle = Mathf.Atan2(Sword.velocity.y, Sword.velocity.x) * Mathf.Rad2Deg;
-
             Sword.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
