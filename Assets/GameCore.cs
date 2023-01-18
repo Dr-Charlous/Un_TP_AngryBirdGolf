@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameCore : MonoBehaviour
     public float ForceMin = 30f;
     public float ForceMax = 100f;
     public float m_timerClick = 0;
+    public Image ImageSword;
+    public int _currentLevel;
+    public Level CurrentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,20 @@ public class GameCore : MonoBehaviour
             float angle = Mathf.Atan2(Sword.velocity.y, Sword.velocity.x) * Mathf.Rad2Deg;
 
             Sword.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+
+        ImageSword.fillAmount = m_timerClick;
+
+        int heroAlive = 0;
+        foreach (var item in CurrentLevel.Heroes)
+        {
+            if (item != null)
+                heroAlive++;
+        }
+
+        if (heroAlive == 0)
+        {
+            Debug.Log("Victoire");
         }
     }
 
