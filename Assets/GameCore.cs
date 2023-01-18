@@ -10,13 +10,15 @@ public class GameCore : MonoBehaviour
     public float ForceMax = 100f;
     public float m_timerClick = 0;
     public Image ImageSword;
-    public int _currentLevel;
+    static int s_currentLevel;
     public Level CurrentLevel;
+    public List<Level> Levels;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        CurrentLevel = Levels[s_currentLevel];
+        CurrentLevel.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -56,7 +58,9 @@ public class GameCore : MonoBehaviour
 
         if (heroAlive == 0)
         {
-            Debug.Log("Victoire");
+            s_currentLevel++;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            return;
         }
     }
 
