@@ -862,6 +862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d15d10285e1fa642b46844f2abbba1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sword: {fileID: 385917181}
+  ForceMin: 30
+  ForceMax: 100
+  m_timerClick: 0
 --- !u!1 &1114810446
 GameObject:
   m_ObjectHideFlags: 0
